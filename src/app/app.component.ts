@@ -12,14 +12,20 @@ export class AppComponent {
   @ViewChild('form', { static: true }) form: NgForm;
 
   user = {
-    mail: '',
+    email: '',
     password: '',
     subscription: '',
   };
 
   defaultSubscription = 'advanced';
 
+  submitted = false;
+
   onSubmit() {
-    console.log(this.form);
+    this.user.email = this.form.value.email;
+    this.user.password = this.form.value.password;
+    this.user.subscription = this.form.value.subscription;
+
+    this.submitted = true;
   }
 }
