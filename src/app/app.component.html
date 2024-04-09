@@ -13,48 +13,43 @@
             required
             email
             ngNativeValidate
-            #email
+            #email="ngModel"
           />
         </div>
-        <span class="help-block" *ngIf="!email.valid && email.touched"
-          >Please enter a valid Email!</span
-        >
+        <span class="error-message" *ngIf="!email.valid && email.touched">
+          Please enter a valid Email!
+        </span>
         <div class="form-group">
           <label for="password">Your Password</label>
           <input
+            type="password"
             id="password"
             class="form-control"
             ngModel
             name="password"
             required
             ngNativeValidate
-            #password
+            #password="ngModel"
           />
         </div>
-        <span class="help-block" *ngIf="!password.valid && password.touched"
-          >Please enter a valid Password!</span
-        >
+        <span class="error-message" *ngIf="!password.valid && password.touched">
+          Please enter a valid Password!
+        </span>
         <div class="form-group">
-          <label for="subscription">Subscription Type:</label>
+          <label for="subscription">Subscription Type</label>
           <select
             id="subscription"
             class="form-control"
-            [(ngModel)]="defaultSubscription"
+            [ngModel]="defaultSubscription"
             name="subscription"
             required
             ngNativeValidate
-            #subscription="ngModel"
           >
             <option value="basic">Basic Subscription</option>
-            <option value="advanced">Basic Subscription</option>
-            <option value="pro">Basic Subscription</option>
+            <option value="advanced">Advanced Subscription</option>
+            <option value="pro">Pro Subscription</option>
           </select>
         </div>
-        <span
-          class="help-block"
-          *ngIf="!subscription.valid && subscription.touched"
-          >Please enter a valid Secret Question!</span
-        >
 
         <button [disabled]="!form.valid" class="btn btn-primary" type="submit">
           Submit

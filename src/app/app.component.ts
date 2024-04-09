@@ -19,15 +19,7 @@ export class AppComponent {
 
   defaultSubscription = 'advanced';
 
-  submitted = false;
-
   onSubmit() {
-    this.user.mail = this.form.value.email;
-    this.user.password = this.form.value.password;
-    this.user.subscription = this.form.value.subscription;
-
-    this.submitted = true;
-
-    this.form.reset();
+    console.log(this.form);
   }
 }
