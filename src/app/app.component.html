@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group">
+          <label for="email">Your E-Mail Address</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            ngNativeValidate
+            #email
+          />
+        </div>
+        <span class="help-block" *ngIf="!email.valid && email.touched"
+          >Please enter a valid Email!</span
+        >
+        <div class="form-group">
+          <label for="password">Your Password</label>
+          <input
+            id="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            ngNativeValidate
+            #password
+          />
+        </div>
+        <span class="help-block" *ngIf="!password.valid && password.touched"
+          >Please enter a valid Password!</span
+        >
+        <div class="form-group">
+          <label for="subscription">Subscription Type:</label>
+          <select
+            id="subscription"
+            class="form-control"
+            [(ngModel)]="defaultSubscription"
+            name="subscription"
+            required
+            ngNativeValidate
+            #subscription="ngModel"
+          >
+            <option value="basic">Basic Subscription</option>
+            <option value="advanced">Basic Subscription</option>
+            <option value="pro">Basic Subscription</option>
+          </select>
+        </div>
+        <span
+          class="help-block"
+          *ngIf="!subscription.valid && subscription.touched"
+          >Please enter a valid Secret Question!</span
+        >
+
+        <button [disabled]="!form.valid" class="btn btn-primary" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
